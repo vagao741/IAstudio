@@ -1,8 +1,10 @@
 package com.iastudio.app
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import android.widget.Button
 import android.widget.Toast
+import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
 
@@ -10,16 +12,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<android.widget.Button>(R.id.btnImagem).setOnClickListener {
+        findViewById<Button>(R.id.btnImagem).setOnClickListener {
             Toast.makeText(this, "Criador de imagens em breve", Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<android.widget.Button>(R.id.btnVideo).setOnClickListener {
+        findViewById<Button>(R.id.btnVideo).setOnClickListener {
             Toast.makeText(this, "Criador de vídeos em breve", Toast.LENGTH_SHORT).show()
         }
 
-        findViewById<android.widget.Button>(R.id.btnChat).setOnClickListener {
-            Toast.makeText(this, "Chat com IA em breve", Toast.LENGTH_SHORT).show()
+        findViewById<Button>(R.id.btnChat).setOnClickListener {
+            startActivity(Intent(this, ChatActivity::class.java))
         }
     }
 }
