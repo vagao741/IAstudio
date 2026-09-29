@@ -1,37 +1,40 @@
 package com.iastudio.app
 
 import android.os.Bundle
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.graphics.Color
-import android.view.Gravity
+import android.content.Intent
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 
-class MainActivity : android.app.Activity() {
+class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val layout = LinearLayout(this).apply {
-            orientation = LinearLayout.VERTICAL
-            gravity = Gravity.CENTER
-            setPadding(32, 32, 32, 32)
-        }
+        setContent {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text("IA Studio")
 
-        val title = TextView(this).apply {
-            text = "IA Studio"
-            textSize = 32f
-            setTextColor(Color.BLACK)
-            gravity = Gravity.CENTER
+                Button(
+                    onClick = {
+                        startActivity(
+                            Intent(this@MainActivity, ChatActivity::class.java)
+                        )
+                    }
+                ) {
+                    Text("Abrir IA")
+                }
+            }
         }
-
-        val subtitle = TextView(this).apply {
-            text = "Seu estúdio de criação com Inteligência Artificial"
-            textSize = 18f
-            gravity = Gravity.CENTER
-            setPadding(0, 24, 0, 0)
-        }
-
-        layout.addView(title)
-        layout.addView(subtitle)
-        setContentView(layout)
     }
 }
