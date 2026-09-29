@@ -1,4 +1,3 @@
-```kotlin
 package com.iastudio.app
 
 import android.os.Bundle
@@ -19,8 +18,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
@@ -38,7 +37,6 @@ class ChatActivity : ComponentActivity() {
                     .fillMaxSize()
                     .padding(16.dp)
             ) {
-
                 Text(
                     text = "IA Studio",
                     style = MaterialTheme.typography.headlineMedium
@@ -79,7 +77,9 @@ class ChatActivity : ComponentActivity() {
                         onClick = {
                             if (mensagem.isNotBlank()) {
                                 mensagens.add("Você: $mensagem")
-                                mensagens.add("IA: Ainda estou sendo conectada à inteligência artificial.")
+                                mensagens.add(
+                                    "IA: Ainda estou sendo conectada à inteligência artificial."
+                                )
                                 mensagem = ""
                             }
                         }
@@ -91,4 +91,3 @@ class ChatActivity : ComponentActivity() {
         }
     }
 }
-```
